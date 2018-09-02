@@ -14,10 +14,7 @@
  */
 package club.systemsdevelopment.webscraper;
 
-public class Database {
-    static {
-        // todo load DB connection
-    }
-    // todo add database methods
-    // todo add shortcut methods relevant for the project
+@FunctionalInterface
+public interface PageConsumer {
+    boolean consumePage(String path, String page, long loadTime);
 }
