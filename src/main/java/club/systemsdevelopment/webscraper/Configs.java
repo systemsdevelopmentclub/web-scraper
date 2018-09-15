@@ -133,9 +133,9 @@ public class Configs {
      * Gets the maximum page size for archiving a page.
      * Pages over this will be discarded and marked as oversized.
      *
-     * @return the max page size for downloading in kilobytes per second.
+     * @return the max page size for downloading in bytes per second.
      */
-    public static Integer getMaxPageSize() {// Kbps
+    public static Integer getMaxPageSize() {// Bytes
         return Integer.parseInt(PROPERTIES.getProperty("max-page-size", "20000"));
     }
 
