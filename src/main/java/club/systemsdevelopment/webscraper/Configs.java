@@ -40,8 +40,11 @@ public class Configs {
             boolean shutdown = check(Configs::getPeerId, "peer-id");
             shutdown |= check(Configs::getUserAgent, "user-agent");
             shutdown |= check(Configs::getPeerAddresses, "peer-addresses");
+            shutdown |= check(Configs::getDatabaseHost, "database-name");
             shutdown |= check(Configs::getDatabaseUser, "database-user");
             shutdown |= check(Configs::getDatabaseUser, "database-password");
+            shutdown |= check(Configs::getDatabaseHost, "database-host");
+            shutdown |= check(Configs::getDatabaseHost, "database-port");
             // todo add checking for class file or jar and load that
             File file = new File(PROPERTIES.getProperty("page-consumer-policy-path", System.getProperty("user.dir") + "\\DefaultPageConsumerPolicy.class"));
             if (file.exists()) {
@@ -103,6 +106,15 @@ public class Configs {
     }
 
     /**
+     * Gets the database name for accessing the database.
+     *
+     * @return the database for the database.
+     */
+    public static String getDatabaseName() {
+        return PROPERTIES.getProperty("database-name");
+    }
+
+    /**
      * Gets the user name for accessing the database.
      *
      * @return the user for the database.
@@ -118,6 +130,24 @@ public class Configs {
      */
     public static String getDatabasePassword() {
         return PROPERTIES.getProperty("database-password");
+    }
+
+    /**
+     * Gets the host address for accessing the database.
+     *
+     * @return the host address.
+     */
+    public static String getDatabaseHost() {
+        return PROPERTIES.getProperty("database-host");
+    }
+
+    /**
+     * Gets the database port for accessing the database.
+     *
+     * @return the database port.
+     */
+    public static Integer getDatabasePort() {
+        return Integer.parseInt(PROPERTIES.getProperty("database-port"));
     }
 
     /**
